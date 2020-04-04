@@ -152,9 +152,21 @@ Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都
 
 ![](Apollo-or-ROS/2020-04-04-21-09-56.png)
 
-### 3.1.5. 可移植性
+### 3.1.5. 指导文档
 
 #### 3.1.5.1. Apollo
+
+基本为0，除了其发表的论文：“万国伟，杨晓龙，蔡仁兰，李莉，周瑶，王浩，宋诗玉。“在不同的城市场景中基于多传感器融合的精确而精确的车辆定位”，2018 IEEE国际机器人与自动化会议（ICRA），布里斯班，昆士兰州，2018年，第4670-4677页。doi：10.1109 ”
+
+#### 3.1.5.2. Autoware
+
+具有详细的协议栈，开发文档，API接口，程序流图，以及所实现的算法原理
+
+![](Apollo-or-ROS/2020-04-04-23-29-50.png)
+
+### 3.1.6. 可移植性
+
+#### 3.1.6.1. Apollo
 
 - 向内移植
 
@@ -175,13 +187,13 @@ Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都
   - 掌握Apollo的关于`Localization`协议栈，API接口，数据内容以及格式
   - 关于`Localization`部分所有**输入输出关系**全部掌握
 
-#### 3.1.5.2. Autoware
+#### 3.1.6.2. Autoware
 
 完全基于ROS，移植性不言而喻。
 
-### 3.1.6. 总结
+### 3.1.7. 总结
 
-![](Apollo-or-ROS/2020-04-04-22-19-59.png)
+![](Apollo-or-ROS/2020-04-04-23-29-14.png)
 
 总结就是，还是要有自己的核心算法呀。
 
@@ -195,8 +207,57 @@ Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都
 
 ## 4.1. 解决方案
 
+### 4.1.1. Apollo
+
+- 倒车入库
+- Robo Taxi
+- 智能信号灯控制系统
+- 以及以下无人驾驶集成方案
+
+#### 4.1.1.1. 新石器无人车
+
+![](Apollo-or-ROS/2020-04-04-22-57-28.png)
+
+#### 4.1.1.2. Apolong
+
+![](Apollo-or-ROS/2020-04-04-23-04-08.png)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5__S3FWD-Vg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### 4.1.2. Autoware
+
+基本上只在微型小车测试，尚无大型集成方案
+
+![](Apollo-or-ROS/2020-04-04-23-10-07.png)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ojtQw9NPIaU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## 4.2. 云服务
+
+### 4.2.1. Apollo
+
+Apollo提供有偿的云服务，包括:
+
+- 高精地图
+- 仿真平台
+- 数据流
+- V2X
+- 车载平台
+
+### 4.2.2. Autoware
+
+无
 
 ## 4.3. 开发套件
 
+### 4.3.1. Apollo
+
+Apollo的`D-Kit`开发套件
+
+### 4.3.2. Autoware
+
+无
+
 ## 4.4. 规范认证
+
+不详
