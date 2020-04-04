@@ -20,27 +20,21 @@ tags:
 
 ## 2.1. 基本架构
 
-- Apollo(完善但复杂)
+### 2.1.1. Apollo(完善但复杂)
 
 ![](Apollo-or-ROS/2020-04-03-18-23-16.png)
 
-![](Apollo-or-ROS/2020-04-04-11-00-58.png)
-
-![](Apollo-or-ROS/2020-04-04-11-01-04.png)
-
-![](Apollo-or-ROS/2020-04-04-11-01-09.png)
-
-- AutoWare1.0(简化但Main)
+### 2.1.2. AutoWare1.0(简化但Main)
 
 ![](Apollo-or-ROS/2020-04-03-18-26-02.png)
 
-# 3. 技术
+# 3. 功能实现
 
 ## 3.1. Localization
 
 ### 3.1.1. 技术简介
 
-#### Apollo中的定位技术
+#### 3.1.1.1. Apollo中的定位技术
 
 - RTK模式: 为了方便调试，Apollo自行实现了一套RTK解算，只使用RTK的定位信息。
 
@@ -59,7 +53,7 @@ tags:
   
   ![](Apollo-or-ROS/2020-04-04-11-32-05.png)
 
-#### Autoware(ROS)中的定位技术
+#### 3.1.1.2. Autoware(ROS)中的定位技术
 
 - 基于3D Lidar的定位: 采用NDT点云配准算法进行定位，分别实现了
   - 基于PCL的NDT算法
@@ -77,11 +71,11 @@ tags:
 
 ### 3.1.2. 技术成熟度
 
-#### Apollo
+#### 3.1.2.1. Apollo
 
 Apollo实现的RTK解算、MSF传感器融合定位，都有成熟的理论指导，成熟度较高。并且从Apollo最近的几个版本来看，定位模块的改动不大。
 
-#### Autoware
+#### 3.1.2.2. Autoware
 
 Autoware采用的NDT定位算法是2009年的一篇博士论文，目前仍被广泛应用，技术相对成熟，并且名古屋大学教授对此进行了改进，即NDT-TKU算法
 
@@ -90,7 +84,7 @@ Autoware采用的NDT定位算法是2009年的一篇博士论文，目前仍被�
 
 从定位技术的前沿性来看，Apollo比Autoware领先，并且更加完善
 
-#### Apollo
+#### 3.1.3.1. Apollo
 
 从目前现有的代码来看，Apollo的RTK、MSF定位都是基于传统技术如:
 
@@ -101,13 +95,13 @@ Autoware采用的NDT定位算法是2009年的一篇博士论文，目前仍被�
 
 的堆叠，但是实际上Apollo提出了许多新的算法，如基于深度学习的点云匹配，基于深度学习的定位融合，虽然目前没有直接在Apollo代码中实现，不排除后续升级版本对定位模块的改进。
 
-#### Autoware
+#### 3.1.3.2. Autoware
 
 Autoware主要面向封闭环境，因此其认为，使用3D Lidar SLAM足以解决封闭环境的定位问题，而没有像Apollo那样实现GPS/IMU的融合解算，只是使用了EKF来对3D激光点云定位和GPS定位进行了融合，其`GPS定位信息转换模块`值得学习一下。
 
 ### 3.1.4. 源码开放度
 
-#### Apollo
+#### 3.1.4.1. Apollo
 
 Apollo虽说开源，但是核心部分还是抓的死死的，其中包括
 
@@ -147,7 +141,7 @@ liblocalization_msf.so.1.0.2
 
 1. [【Apollo】【localization】调试与分析](http://www.jeepxie.net/article/693907.html)
 
-#### Autoware
+#### 3.1.4.2. Autoware
 
 Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都开了
 
@@ -160,7 +154,7 @@ Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都
 
 ### 3.1.5. 可移植性
 
-#### Apollo
+#### 3.1.5.1. Apollo
 
 - 向内移植
 
@@ -181,13 +175,15 @@ Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都
   - 掌握Apollo的关于`Localization`协议栈，API接口，数据内容以及格式
   - 关于`Localization`部分所有**输入输出关系**全部掌握
 
-#### Autoware
+#### 3.1.5.2. Autoware
 
 完全基于ROS，移植性不言而喻。
 
-### 总结
+### 3.1.6. 总结
 
+![](Apollo-or-ROS/2020-04-04-22-19-59.png)
 
+总结就是，还是要有自己的核心算法呀。
 
 ## 3.2. Perception
 
@@ -204,5 +200,3 @@ Autoware毕竟是基金组织，也没什么人投钱，基本上实现了的都
 ## 4.3. 开发套件
 
 ## 4.4. 规范认证
-
-## 分支测试
