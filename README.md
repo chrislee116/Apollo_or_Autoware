@@ -14,7 +14,9 @@ git clone https://github.com/qpc001/Apollo_or_Autoware.git
 
 ```bash
 git branch 你的分支名称
+git checkout 你的分支名称
 ```
+
 
 ## 进行你自己的修改
 
